@@ -1,4 +1,4 @@
-package com.example.mission.Model;
+package com.example.mission.model;
 
 import lombok.Data;
 import lombok.ToString;

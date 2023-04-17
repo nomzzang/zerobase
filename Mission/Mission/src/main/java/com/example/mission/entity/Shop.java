@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +23,8 @@ public class Shop {
     private String shopLocation;
     private String shopBriefly;
     private String shopContact;
+
+    private LocalDateTime regDt;
 
 
 
