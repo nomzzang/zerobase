@@ -1,4 +1,4 @@
-package com.zerobase.fastlms;
+package com.zerobase.fastlms.maincontroller;
 
 //MainPage 클래스를 만든 목적!!
 // 매핑하기 위해서
@@ -7,13 +7,13 @@ package com.zerobase.fastlms;
 // 후보군? 클래스, 속성, 메소드
 
 import com.zerobase.fastlms.components.Mailcomponents;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -33,13 +33,6 @@ public class MainPage {
 
         return "index";
     }
-
-
-
-
-
-
-
 
 // RequestMapping 에서는 리턴값으로 index.html로 반환이 된다 그래서 resources에 templates에 index.html을 만들어줘야한다.
 
