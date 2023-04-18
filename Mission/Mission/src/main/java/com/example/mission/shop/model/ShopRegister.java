@@ -1,4 +1,4 @@
-package com.example.mission.model;
+package com.example.mission.shop.model;
 
 import lombok.Data;
 import lombok.ToString;
@@ -7,7 +7,7 @@ import lombok.ToString;
 @Data
 public class ShopRegister {
 
-    private String userId;
+    private String shopId;
 
     private String shopName;
     private String shopLocation;

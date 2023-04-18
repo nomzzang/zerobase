@@ -1,9 +1,7 @@
-package com.example.mission.controller;
+package com.example.mission.shop.controller;
 
-import com.example.mission.entity.Shop;
-import com.example.mission.model.ShopRegister;
-import com.example.mission.repository.ShopRepository;
-import com.example.mission.service.ShopService;
+import com.example.mission.shop.model.ShopRegister;
+import com.example.mission.shop.service.ShopService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.time.LocalDateTime;
 
 
 @RequiredArgsConstructor
@@ -23,28 +20,28 @@ public class ShopController {
     private final ShopService shopService;
 
 
-
     @RequestMapping("/")
     public String main() {
 
         return "/main";
     }
 
-    @GetMapping("/shop/register")
+    @GetMapping("/shop/shop/register")
     public String register() {
 
-        System.out.println("get");
-        return "/shop/register";
+        return "shop/shop_register";
     }
 
-    @PostMapping("/shop/register")
+    @PostMapping("/shop/shop/register")
     public String ShopRegister(Model model, HttpServletRequest request, HttpServletResponse response
-    , ShopRegister shopRegister){
+            , ShopRegister shopRegister) {
+
 
         boolean result = shopService.register(shopRegister);
         model.addAttribute("result", result);
 
-        return "shop/register_complete";
+
+        return "shop/shop_register_complete";
     }
 
 }

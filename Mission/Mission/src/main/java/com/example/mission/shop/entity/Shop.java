@@ -1,4 +1,4 @@
-package com.example.mission.entity;
+package com.example.mission.shop.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Shop {
 
     @Id
-    private String userId;
+    private String shopId;
 
     private String shopName;
     private String shopLocation;
