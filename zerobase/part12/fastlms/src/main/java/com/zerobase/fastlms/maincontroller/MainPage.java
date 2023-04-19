@@ -74,8 +74,12 @@ public class MainPage {
         printWriter.close();
 
     }
-//    @RequestMapping("/hi")
-//    public String hi() {
-//
-//    }
+
+
+    @RequestMapping("/error/denied")
+    public String errorDenied(){
+
+        return "error/denied";
+    }
+
 }
