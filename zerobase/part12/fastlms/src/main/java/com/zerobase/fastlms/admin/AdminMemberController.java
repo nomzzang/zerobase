@@ -39,6 +39,16 @@ public class AdminMemberController {
 
         return "admin/member/list";
 
+
+
+    }
+
+    @GetMapping("admin/member/detail.do")
+    public String detail(Model model, MemberParam parameter) {
+
+        parameter.init();
+
+        return "admin/member/detail";
     }
 
 }
