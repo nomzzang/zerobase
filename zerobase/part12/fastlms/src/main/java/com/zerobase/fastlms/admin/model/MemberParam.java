@@ -5,6 +5,8 @@ import lombok.Data;
 @Data
 public class MemberParam {
 
+    String userId;
+
     long pageIndex;
     long pageSize;
 

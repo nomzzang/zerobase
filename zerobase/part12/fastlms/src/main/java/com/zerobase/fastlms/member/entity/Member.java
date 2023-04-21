@@ -1,6 +1,7 @@
 package com.zerobase.fastlms.member.entity;
 
 
+import com.zerobase.fastlms.member.service.MemberService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 @Builder
 @Data
 @Entity
-public class Member {
+public class Member implements MemberCode {
 
     @Id
     private String userId;
@@ -35,6 +36,10 @@ public class Member {
     private LocalDateTime resetPasswordLimitDt;
 
     private boolean adminYn;
+
+    private String userStatus;
+
+
 
 
     //관리자를 지정할꺼냐?
