@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class UserRegister {
 
     private String userId;
-
+    private String userPassword;
     private String userName;
     private String userAge;
     private String userSex;

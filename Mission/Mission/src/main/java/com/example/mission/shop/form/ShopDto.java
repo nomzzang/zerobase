@@ -1,31 +1,24 @@
-package com.example.mission.shop.entity;
+package com.example.mission.shop.form;
 
-
+import com.example.mission.shop.entity.Shop;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-public class Shop {
+public class ShopDto {
 
     @Id
-    private String shopId;
-    private String shopPassword;
-
     private String shopName;
     private String shopLocation;
     private String shopBriefly;
     private String shopContact;
-
-    private LocalDateTime regDt;
 
 
 

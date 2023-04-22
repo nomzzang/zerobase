@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,6 +42,19 @@ public class UserController {
 
 
         return "user/user_register_complete";
+    }
+    @GetMapping("/user/user/main")
+    public String UserMain() {
+
+        return "user/user_main";
+    }
+
+
+    @RequestMapping("/user/user/login")
+    public String UserLogin() {
+
+        System.out.println("로그인 실행 ");
+        return "user/user_login";
     }
 
 }

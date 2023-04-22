@@ -8,6 +8,7 @@ import lombok.ToString;
 public class ShopRegister {
 
     private String shopId;
+    private String shopPassword;
 
     private String shopName;
     private String shopLocation;
