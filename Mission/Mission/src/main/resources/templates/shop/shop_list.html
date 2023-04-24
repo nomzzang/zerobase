@@ -3,55 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>예약하기 화면</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-        }
 
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin: 0 auto;
-            width: 80%;
-            max-width: 800px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            background-color: #fff;
-        }
-
-        th {
-            background-color: #ddd;
-            font-weight: bold;
-            text-align: left;
-            padding: 10px;
-        }
-
-        td {
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-        }
-    </style>
 </head>
 <body>
 
 <h1> 예약 가능 리스트 </h1>
+<hr>
+<div>
+    <form method="get">
+        <select name="searchType">
+            <option value="all">전체</option>
+            <option th:selected="${#strings.equals(param.searchType, 'shopName')}" value="shopName">상호</option>
+            <option th:selected="${#strings.equals(param.searchType, 'shopLocation')}" value="shopLocation">지역</option>
+            <option th:selected="${#strings.equals(param.searchType, 'shopBriefly')}" value="shopLocation">추천메뉴</option>
+        </select>
+        <input th:value="${param.searchValue}" type="text" name="searchValue"/>
+        <button type="submit">검색</button>
+    </form>
+</div>
 
-<table>
+<table border="1" th:unless="${#lists.isEmpty(shops)}" style="table-layout: fixed;">
+
     <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Briefly</th>
-        <th>Contact</th>
+        <th>상호명</th>
+        <th>지역</th>
+        <th>추천메뉴</th>
+        <th>연락처</th>
     </tr>
     <tr th:each="shop : ${shops}">
         <td th:text="${shop.shopName}"></td>
         <td th:text="${shop.shopLocation}"></td>
         <td th:text="${shop.shopBriefly}"></td>
         <td th:text="${shop.shopContact}"></td>
+        <td>
+            <form method="get" th:action="@{/book/book}">
+                <input type="submit" value="예약하기">
+            </form>
+        </td>
+        <p th:if="${#lists.isEmpty(shops)}"> 등록 된 업체가 없습니다. </p>
     </tr>
 </table>
 

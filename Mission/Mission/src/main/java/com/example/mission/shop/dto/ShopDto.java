@@ -1,4 +1,4 @@
-package com.example.mission.shop.form;
+package com.example.mission.shop.dto;
 
 import com.example.mission.shop.entity.Shop;
 import lombok.AllArgsConstructor;

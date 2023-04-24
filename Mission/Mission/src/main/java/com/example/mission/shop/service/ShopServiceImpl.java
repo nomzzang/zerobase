@@ -2,7 +2,8 @@ package com.example.mission.shop.service;
 
 import com.example.mission.mapper.ShopMapper;
 import com.example.mission.shop.entity.Shop;
-import com.example.mission.shop.form.ShopDto;
+import com.example.mission.shop.dto.ShopDto;
+import com.example.mission.shop.model.ShopParam;
 import com.example.mission.shop.model.ShopRegister;
 import com.example.mission.shop.repository.ShopRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,10 +22,12 @@ public class ShopServiceImpl implements ShopService{
 
     @Override
     public List<ShopDto> selectAll() {
+
         List<Shop> shops = shopRepository.findAll();
         return ShopMapper.convertToDtoList(shops);
 
         }
+
 
     @Override
     public boolean register(ShopRegister shopRegister){
@@ -44,4 +47,6 @@ public class ShopServiceImpl implements ShopService{
 
         return true;
     }
+
+
 }

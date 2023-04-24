@@ -26,13 +26,13 @@ public class UserController {
 //        return "/main";
 //    }
 
-    @GetMapping("/user/user/register")
+    @GetMapping("/register")
     public String register() {
 
-        return "user/user_register";
+        return "/register";
     }
 
-    @PostMapping("/user/user/register")
+    @PostMapping("/register")
     public String UserRegister(Model model, HttpServletRequest request, HttpServletResponse response
             , UserRegister userRegister) {
 
@@ -48,13 +48,18 @@ public class UserController {
 
         return "user/user_main";
     }
+    @GetMapping("/book/book")
+    public String UserBook() {
+
+        return "/book/book";
+    }
 
 
-    @RequestMapping("/user/user/login")
+    @RequestMapping("/user/login")
     public String UserLogin() {
 
         System.out.println("로그인 실행 ");
-        return "user/user_login";
+        return "/login";
     }
 
 }
