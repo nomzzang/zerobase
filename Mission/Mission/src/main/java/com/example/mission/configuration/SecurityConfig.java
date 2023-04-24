@@ -1,6 +1,7 @@
 package com.example.mission.configuration;
 
 import com.example.mission.user.service.UserService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,12 +12,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserService userService;
+
     @Bean
     PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
@@ -24,29 +27,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    UserAuthenticationFailureHandler getFailureHandler(){
+    UserAuthenticationFailureHandler getFailureHandler() {
         return new UserAuthenticationFailureHandler();
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-
         http.authorizeRequests()
-                .antMatchers("/", "/**")
-                .permitAll();
+                // 모든사용자에게 접근허용
+                .antMatchers("/","user/**","/shop/**").permitAll();
 
-        http.formLogin()
-                .loginPage("/user/user/login")
-                .failureHandler(getFailureHandler())
-                .permitAll();
 
         super.configure(http);
     }
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService)
-        .passwordEncoder(getPasswordEncoder());
+                .passwordEncoder(getPasswordEncoder());
 
         super.configure(auth);
     }

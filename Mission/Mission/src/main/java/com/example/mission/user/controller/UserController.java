@@ -48,13 +48,18 @@ public class UserController {
 
         return "user/user_main";
     }
+    @GetMapping("/book/book")
+    public String UserBook() {
+
+        return "/book/book";
+    }
 
 
-    @RequestMapping("/user/user/login")
+    @RequestMapping("/user/login")
     public String UserLogin() {
 
         System.out.println("로그인 실행 ");
-        return "user/user_login";
+        return "/login";
     }
 
 }
