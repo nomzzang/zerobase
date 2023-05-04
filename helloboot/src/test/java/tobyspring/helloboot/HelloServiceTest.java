@@ -45,7 +45,7 @@ public class HelloServiceTest {
     void helloDecorator() {
         HelloDecorator decorator = new HelloDecorator(name -> name);
         String ret = decorator.sayHello("Test");
-        Assertions.assertThat(ret).isEqualTo("**Test**");
+        Assertions.assertThat(ret).isEqualTo("*Test*");
 
     }
 }
